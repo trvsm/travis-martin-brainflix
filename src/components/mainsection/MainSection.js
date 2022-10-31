@@ -1,10 +1,9 @@
 import './mainSection.scss';
-import Card from "../card/Card";
 
 const MainSection = () =>{
     return(
         <>
-        <Card></Card></>
+        <div>Hi</div></>
     )
 };
 

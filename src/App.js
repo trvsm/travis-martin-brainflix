@@ -1,19 +1,15 @@
 import "./styles/main.scss";
-import Footer from "./components/footer/Footer";
-import Gallery from "./components/gallery/Gallery";
 import Header from "./components/header/Header";
-import MainSection from "./components/mainsection/MainSection";
-
+import Hero from "./components/hero/Hero";
+// import MainSection from "./components/mainsection/MainSection";
+import Sidebar from "./components/sidebar/Sidebar";
 
 function App() {
   return (
     <>
       <Header />
-
-      <MainSection>
-        <Gallery></Gallery>
-      </MainSection>
-      <Footer></Footer>
+      <Hero></Hero>
+      <Sidebar></Sidebar>
     </>
   );
 }
