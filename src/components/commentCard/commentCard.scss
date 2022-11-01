@@ -1,0 +1,19 @@
+.comment{
+    display: flex;
+    &__profile-pic{
+        margin: 0;
+        width: 2rem;
+        min-width: 2rem;
+        height: 2rem;
+        background-color: #000;
+        border-radius: 50%;
+    }
+    &__right-section{
+        display: flex;
+        flex-direction: column;
+    }
+    &__attribution{
+        display: flex;
+        justify-content: space-between;
+    }
+}
