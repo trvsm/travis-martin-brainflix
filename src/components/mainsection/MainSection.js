@@ -3,7 +3,7 @@ import './mainSection.scss';
 const MainSection = () =>{
     return(
         <>
-        <div>Hi</div></>
+        <div>Comments form and video specific comments</div></>
     )
 };
 
