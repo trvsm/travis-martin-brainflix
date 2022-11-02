@@ -14,14 +14,13 @@ import videoData from "../src/data/videos.json";
 
 function App() {
   const [activeVideos] = useState(videoDetails);
-
   const [videos] = useState(videoData);
+
   return (
     <>
       <Header />
       <Hero key={activeVideos[0].id} activeVideo={activeVideos[0]} />
-      <MainSection></MainSection>
-
+      <MainSection />
       {videos.map((video) => {
         return <Card key={video.id} video={video} />;
       })}

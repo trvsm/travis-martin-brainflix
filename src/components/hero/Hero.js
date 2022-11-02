@@ -15,8 +15,8 @@ const Hero = (props) => {
         <span className="hero__channel">By {props.activeVideo.channel}</span> | <img alt="view icon"/>{props.activeVideo.views} |
         {props.activeVideo.timestamp} | <img alt="like icon"/>{props.activeVideo.likes}
       </div>
-      <section className="video__description">
-        Description: Suspicio? Bene ... tunc ibimus? Quis uh ... CONEXUS locus
+      <section className="hero__description">
+        {props.activeVideo.description}
       </section>
     </div>
   );
