@@ -1,6 +1,7 @@
 import "./styles/main.scss";
 import { useState } from "react";
 import Card from "./components/card/Card";
+import Form from "./components/form/Form"
 import Header from "./components/header/Header";
 import Hero from "./components/hero/Hero";
 import MainSection from "./components/mainsection/MainSection";
@@ -36,6 +37,7 @@ function App() {
     <>
       <Header />
       <Hero key={defaultVideo.id} activeVideo={defaultVideo} />
+      <Form />
       {/* TODO: set active video as default, set var to accept changed video */}
       <MainSection />
       {videos.map((video) => {
