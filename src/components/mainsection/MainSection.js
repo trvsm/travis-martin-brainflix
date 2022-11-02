@@ -1,6 +1,5 @@
 import "./mainSection.scss";
-import CommentCard from '../commentCard/CommentCard.js'
-
+import CommentCard from "../commentCard/CommentCard.js";
 
 // replace this array with state to get local items
 const testComments = [
@@ -54,8 +53,17 @@ const MainSection = () => {
         </form>
       </div>
       <div className="comments__cards">
-{testComments.map((testComment)=>{
-return<CommentCard key={testComment.id} user={testComment.name} timestamp={testComment.timestamp} comment={testComment.comment}/>;})}
+        {testComments.map((testComment) => {
+          return (
+            <CommentCard
+              key={testComment.id}
+              // key tied to component within map function so component uniquely identified
+              user={testComment.name}
+              timestamp={testComment.timestamp}
+              comment={testComment.comment}
+            />
+          );
+        })}
       </div>
     </section>
   );
