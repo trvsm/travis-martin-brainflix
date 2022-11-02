@@ -39,9 +39,7 @@ function App() {
       <Form />
       {/* TODO: set active video as default, set var to accept changed video */}
       <MainSection comments={activeDetails.comments}/>
-      {videos.map((video) => {
-        return <Card key={video.id} video={video} clickEvent={clickEvent} />;
-      })}
+      <Card videos={videos} clickEvent={clickEvent} />;
       {/* <Sidebar></Sidebar> */}
     </>
   );
