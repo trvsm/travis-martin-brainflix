@@ -23,7 +23,6 @@ function App() {
   const [activeDetails, setActiveDetails] = useState(getVideoDetails(videoDetails[0].id));
   let displayedVideo = ''
 
-
   const clickEvent = (event) => {
     event.preventDefault();
     console.log(event.currentTarget.id);
@@ -39,7 +38,7 @@ function App() {
       <Hero key={defaultVideo.id} activeVideo={defaultVideo} />
       <Form />
       {/* TODO: set active video as default, set var to accept changed video */}
-      <MainSection />
+      <MainSection comments={activeDetails.comments}/>
       {videos.map((video) => {
         return <Card key={video.id} video={video} clickEvent={clickEvent} />;
       })}

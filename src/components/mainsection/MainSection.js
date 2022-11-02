@@ -1,21 +1,24 @@
 import "./mainSection.scss";
-import { useState } from "react";
-import CommentCard from "../commentCard/CommentCard.js";
-import videoDetails from "../../data/video-details.json";
 
-// replace this array with state to get local items
+const MainSection = ({comments}) => {
 
-const MainSection = () => {
-  const [activeComments] = useState(videoDetails[0].comments);
   // a function to map from JSON to comment card
   return (
-    <section className="comments">
-        {activeComments.map((activeComment) => {
-          return (
-            <CommentCard key={activeComment.id} activeComment={activeComment} />
+    comments.map((comment) => {
+      return (
+            <section className="comment" key={comment.id}>        
+        <div className="comment__profile-pic"></div>
+        <div className="comment__right-section">
+          <div className="comment__attribution">
+            <span className="comment__name">{comment.user}</span>
+            <span className="comment__timestamp">{comment.timestamp}</span>
+          </div>
+          <p className="comment__comment">{comment.comment}</p>
+        </div>
+      </section>
+      
           );
-        })}
-    </section>
+        })
   );
 };
 
