@@ -12,22 +12,34 @@ import videoData from "../src/data/videos.json";
 
 // https://project-2-api.herokuapp.com/ BrainFlix api
 
+const getVideoDetails = (videoId) => {
+  return videoDetails.find((vid)=>vid.id === videoId);
+}
+
 function App() {
-  const [activeVideos] = useState(videoDetails);
+  const [defaultVideo, setDefaultVideo] = useState(videoDetails[0]);
   const [videos] = useState(videoData);
+  const [activeDetails, setActiveDetails] = useState(getVideoDetails(videoDetails[0].id));
+  let displayedVideo = ''
 
-  const clickEvent = (event) =>{
 
-    console.log(event);
-  }
+  const clickEvent = (event) => {
+    event.preventDefault();
+    console.log(event.currentTarget.id);
+    const clickedCard = event.currentTarget.id;
+    // set the clicked card to active video
+    displayedVideo = clickedCard
+    return displayedVideo
+  };
 
   return (
     <>
       <Header />
-      <Hero key={activeVideos[0].id} activeVideo={activeVideos[0]} />
+      <Hero key={defaultVideo.id} activeVideo={defaultVideo} />
+      {/* TODO: set active video as default, set var to accept changed video */}
       <MainSection />
       {videos.map((video) => {
-        return <Card key={video.id} video={video} clickEvent={clickEvent}/>;
+        return <Card key={video.id} video={video} clickEvent={clickEvent} />;
       })}
       {/* <Sidebar></Sidebar> */}
     </>
