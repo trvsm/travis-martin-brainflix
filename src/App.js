@@ -16,13 +16,18 @@ function App() {
   const [activeVideos] = useState(videoDetails);
   const [videos] = useState(videoData);
 
+  const clickEvent = (event) =>{
+
+    console.log(event);
+  }
+
   return (
     <>
       <Header />
       <Hero key={activeVideos[0].id} activeVideo={activeVideos[0]} />
       <MainSection />
       {videos.map((video) => {
-        return <Card key={video.id} video={video} />;
+        return <Card key={video.id} video={video} clickEvent={clickEvent}/>;
       })}
       {/* <Sidebar></Sidebar> */}
     </>

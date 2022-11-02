@@ -1,8 +1,10 @@
 import "./card.scss";
 
-const Card = ({video}) => {
+const Card = ({video, clickEvent}) => {
+  
   return (
-      <div className="card">
+    //pretty sure will be passing parameters so wrap in annon func
+      <div onClick={clickEvent} className="card">
         <img
           className="card__image"
           src={video.image} alt={video.title}
