@@ -43,7 +43,6 @@ function App() {
       <Header />
       <Hero key={activeDetails.id} activeVideo={activeDetails} />
       <Form />
-      {/* TODO: set active video as default, set var to accept changed video */}
       <MainSection comments={activeDetails.comments} />
       <Card videos={videos} clickEvent={clickEvent} />;
     </>
