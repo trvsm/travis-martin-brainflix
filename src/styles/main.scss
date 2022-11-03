@@ -1,7 +1,12 @@
+@use './partials/breakpoints' as bkpt;
+@use './partials/colors' as clr;
+@use './partials/fonts' as fnt;
+@use './partials/mixins' as mxn;
+
 body,
 html {
   margin: 0;
-  font-family: "Arial", sans-serif;
+  font-family: "Avenir", sans-serif;
   box-sizing: border-box;
 }
 

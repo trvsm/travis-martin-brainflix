@@ -1,16 +1,53 @@
+@use './colors' as clr;
+
 @mixin small-page-head {
   font-size: 1.5rem;
   line-height: 2rem;
   font-weight: 700;
 }
 
-@mixin small-section-head{
-    font-size: .75rem;
-    line-height: 1.25rem;
-    font-weight: 700;
+@mixin section-buttons {
+  font-size: 0.75rem;
+  line-height: 1.25rem;
+  font-weight: 700;
 }
 
 @mixin small-subhead {
-    font-size: .812rem;
-    line-height: 1.125rem;
+  font-size: 0.812rem;
+  line-height: 1.125rem;
+  font-weight: 700;
+}
+
+@mixin small-copy {
+  font-size: 0.812rem;
+  line-height: 1.125rem;
+  font-weight: 400;
+}
+
+@mixin med-page-head {
+  font-size: 2.062rem;
+  line-height: 2.75rem;
+  font-weight: 700;
+}
+
+@mixin med-subhead {
+  font-size: 0.875rem;
+  line-height: 2.375rem;
+  font-weight: 700;
+}
+
+@mixin med-copy {
+  font-size: 0.875rem;
+  line-height: 2.375rem;
+  font-weight: 400;
+}
+
+@mixin profile-pic {
+  border-radius: 50%;
+  background-color: clr.$divider-outline;
+  width: 2rem;
+  height: 2rem;
+  background-position: center;
+  background-size: cover;
+  margin: 1rem 1rem 0 0;
 }
