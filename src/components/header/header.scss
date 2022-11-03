@@ -1,11 +1,14 @@
+@use '../../styles/partials/breakpoints' as bkpt;
+@use '../../styles/partials/colors' as clr;
+@use '../../styles/partials/fonts' as fnt;
+@use '../../styles/partials/mixins' as mxn;
+
 .header {
     display: flex;
     justify-content: space-between;
     min-height: 3.125rem;
     padding: 2rem 0;
-    background: #dddddd;
-    border-bottom: solid 2px;
-    z-index: 10;
+    background: clr.$background-n-cta;
   
     &__logo {
         display: flex;
@@ -18,11 +21,11 @@
         padding-right: 1.25rem;
         align-self: right;
     }
+    &__button{
+        @include mxn.cta;
+    }
     
 &__profile-pic{
-    width: 2rem;
-    height: 2rem;
-    background-color: #000;
-    border-radius: 50%;
+   @include mxn.profile-pic;
 }
 }
