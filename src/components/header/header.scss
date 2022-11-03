@@ -20,7 +20,11 @@
 
   &__search-input {
     width: 100%;
+    background-image: url('../../assets/icons/search.svg');
+    background-repeat: no-repeat;
+    background-position: top .5rem left .5rem;
     @include mxn.small-form-field;
+    padding-left: 2.25rem;
   }
   &__form {
     flex-grow: 2;
@@ -44,11 +48,15 @@
 
   &__button {
     flex-grow: 2;
+    background-image: url('../../assets/icons/upload.svg');
+    background-repeat: no-repeat;
+    background-position: left .5rem top .5rem;
     @include mxn.cta;
   }
 
   &__profile-pic {
     margin: 0;
+    background-image: url('../../assets/images/Mohan-muruge.jpg');
     @include mxn.profile-pic;
   }
 
