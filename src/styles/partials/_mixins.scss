@@ -1,0 +1,16 @@
+@mixin small-page-head {
+  font-size: 1.5rem;
+  line-height: 2rem;
+  font-weight: 700;
+}
+
+@mixin small-section-head{
+    font-size: .75rem;
+    line-height: 1.25rem;
+    font-weight: 700;
+}
+
+@mixin small-subhead {
+    font-size: .812rem;
+    line-height: 1.125rem;
+}
