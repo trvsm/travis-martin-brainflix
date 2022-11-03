@@ -47,10 +47,10 @@
   border-radius: 50%;
   background-color: clr.$divider-outline;
   width: 2.25rem;
+  min-width: 2.25rem;
   height: 2.25rem;
   background-position: center;
   background-size: cover;
-  margin: 1rem 1rem 0 0;
 }
 
 @mixin small-pad {
@@ -75,6 +75,7 @@
   background-color: clr.$primary-cta;
   border: none;
   border-radius: .25rem;
+  text-transform: uppercase;
   font-family: "Avenir", sans-serif;
   @include section-buttons()
 }
@@ -84,7 +85,11 @@
   width: 15rem;
   border-radius: 0.25rem;
   padding: 0.75rem;
-  border: 1px, solid clr.$divider-outline;
+  border-width: 1px;
+  border-style: solid;
+  border-color: clr.$divider-outline;
   font-family: "Avenir", sans-serif;
+  background-color: clr.$form-background;
+  text-transform: capitalize;
   @include small-copy();
 }

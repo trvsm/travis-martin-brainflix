@@ -1,31 +1,37 @@
-@use '../../styles/partials/breakpoints' as bkpt;
-@use '../../styles/partials/colors' as clr;
-@use '../../styles/partials/fonts' as fnt;
-@use '../../styles/partials/mixins' as mxn;
+@use "../../styles/partials/breakpoints" as bkpt;
+@use "../../styles/partials/colors" as clr;
+@use "../../styles/partials/fonts" as fnt;
+@use "../../styles/partials/mixins" as mxn;
 
 .header {
+  display: flex;
+  flex-direction: column;
+  background: clr.$background-n-cta;
+&__search{
     display: flex;
-    justify-content: space-between;
-    min-height: 3.125rem;
-    padding: 2rem 0;
-    background: clr.$background-n-cta;
-  
-    &__logo {
-        display: flex;
-        align-items: center;
-        font-size: 2rem;
-    }
 
-    &__right {
-        display: flex;
-        padding-right: 1.25rem;
-        align-self: right;
-    }
-    &__button{
-        @include mxn.cta;
-    }
-    
-&__profile-pic{
-   @include mxn.profile-pic;
 }
+&__search-input{
+    @include mxn.small-form-field;
+
+}
+
+
+&__upload{
+    display: flex;
+}
+  &__logo {
+    display: flex;
+    align-items: center;
+    font-size: 2rem;
+  }
+
+  &__button {
+    @include mxn.cta;
+  }
+
+  &__profile-pic {
+    margin: 0;
+    @include mxn.profile-pic;
+  }
 }
