@@ -13,25 +13,29 @@ import MainSection from "./components/mainsection/MainSection";
 
 // https://project-2-api.herokuapp.com/ BrainFlix api
 
-
+const nextVideoList = (videoId) => {
+  return videoData.filter((video) => video.id !== videoId);
+};
 
 const getVideoDetails = (videoId) => {
-  return videoDetails.find((vid) => vid.id === videoId);
+  return videoDetails.find((video) => video.id === videoId);
 };
 
 function App() {
-  const [defaultVideo, setDefaultVideo] = useState(videoDetails[0]);
-  const [videos] = useState(videoData);
-  const [activeDetails, setActiveDetails] = useState(
-    getVideoDetails(videoDetails[0].id)
+  const [defaultVideo, setDefaultVideo] = useState(
+    "84e96018-4022-434e-80bf-000ce4cd12b8"
   );
+  const [activeDetails, setActiveDetails] = useState(
+    getVideoDetails(defaultVideo)
+  );
+  const [videos, setVideos] = useState(nextVideoList(defaultVideo));
 
   const clickEvent = (event, videoId) => {
     event.preventDefault();
+    setDefaultVideo(videoId);
+    setVideos(nextVideoList(videoId));
     setActiveDetails(getVideoDetails(videoId));
-    setDefaultVideo(videoId)
     // set the clicked card to active video
-   
   };
 
   return (
