@@ -4,7 +4,7 @@ const Header = () => {
   return (
     <>
       <header className="header">
-        <div className="header__logo">BrainFlix</div>
+        <div className="header__logo"></div>
         <div className="header__right">
           <div className="header__search">
             <form className="header__form" action="/">

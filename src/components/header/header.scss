@@ -6,32 +6,53 @@
 .header {
   display: flex;
   flex-direction: column;
+  align-items: center;
   background: clr.$background-n-cta;
-&__search{
-    display: flex;
+  width: 100vw;
+  padding: 1rem;
 
-}
-&__search-input{
+  &__search {
+    display: flex;
+    width: 100vw;
+    padding: 1rem;
+    justify-content: space-between;
+  }
+
+  &__search-input {
+    width: 100%;
     @include mxn.small-form-field;
+  }
+  &__form {
+    flex-grow: 2;
+    padding-right: 1rem;
+  }
 
-}
-
-
-&__upload{
+  &__upload {
     display: flex;
-}
+    padding: 0rem 1rem;
+  }
   &__logo {
+    background-image: url('../../assets/BrainFlix-logo.svg');
+    background-position: center;
+    background-size: cover;
+    height: 1.563rem;
+    width: 7.5rem;
     display: flex;
     align-items: center;
     font-size: 2rem;
   }
 
   &__button {
+    flex-grow: 2;
     @include mxn.cta;
   }
 
   &__profile-pic {
     margin: 0;
     @include mxn.profile-pic;
+  }
+
+  &__profile-pic--med {
+    display: none;
   }
 }

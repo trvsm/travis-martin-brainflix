@@ -68,7 +68,7 @@
 
 @mixin cta {
   height: 2.5rem;
-  max-width: 9.375rem;
+  min-width: 9.375rem;
   padding-left: 2rem;
   padding-right: 2rem;
   color: clr.$background-n-cta;
@@ -82,7 +82,7 @@
 
 @mixin small-form-field {
   height: 2.5rem;
-  width: 15rem;
+  min-width: 15rem;
   border-radius: 0.25rem;
   padding: 0.75rem;
   border-width: 1px;
