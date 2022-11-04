@@ -10,7 +10,7 @@ const MainSection = ({comments}) => {
         <div className="comment__profile-pic"></div>
         <div className="comment__right-section">
           <div className="comment__attribution">
-            <span className="comment__name">{comment.user}</span>
+            <span className="comment__name">{comment.name}</span>
             <span className="comment__timestamp">{comment.timestamp}</span>
           </div>
           <p className="comment__comment">{comment.comment}</p>
