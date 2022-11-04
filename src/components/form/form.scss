@@ -1,18 +1,45 @@
-.comments{
-    &__form-flex{
-        display: flex;
-    }
+@use "../../styles/partials/breakpoints" as bkpt;
+@use "../../styles/partials/colors" as clr;
+@use "../../styles/partials/fonts" as fnt;
+@use "../../styles/partials/mixins" as mxn;
 
-    &__profile-pic{
-        width: 2rem;
-        height: 2rem;
-        background-color: #000;
-        border-radius: 50%;
-        margin: 0;
-    }
+.comments {
+  &__form-flex {
+    display: flex;
+    padding: 1rem;
+    padding-top: 0.5rem;
+    border-bottom: 1px solid clr.$divider-outline;
+  }
 
-    &__form{
-        display: flex;
-        flex-direction: column;
-    }
+  &__profile-pic {
+    @include mxn.profile-pic;
+    background-image: url("../../assets/images/Mohan-muruge.jpg");
+    margin: 0;
+    margin-top: 1.5rem;
+  }
+
+  &__form {
+    display: flex;
+    flex-direction: column;
+    padding-left: 1rem;
+    flex-grow: 2;
+  }
+
+  &__label {
+    @include mxn.small-subhead;
+    color: clr.$text-label;
+    padding-bottom: 0.25rem;
+  }
+
+  &__form-comment {
+    @include mxn.small-form-field;
+    color: clr.$primary-text;
+  }
+
+  &__button {
+    @include mxn.cta;
+    background-image: url(../../assets/icons/add_comment.svg);
+    @include mxn.background-icon;
+    margin-top: 1rem;
+  }
 }

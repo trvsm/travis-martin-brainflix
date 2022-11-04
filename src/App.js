@@ -43,6 +43,7 @@ function App() {
       <Header />
       <Hero key={activeDetails.id} activeVideo={activeDetails} />
       <Form />
+      {/* TODO: add number of comments header above form */}
       <MainSection comments={activeDetails.comments} />
       <Card videos={videos} clickEvent={clickEvent} />;
     </>
