@@ -20,9 +20,8 @@
 
   &__search-input {
     width: 100%;
-    background-image: url('../../assets/icons/search.svg');
-    background-repeat: no-repeat;
-    background-position: top .5rem left .5rem;
+    background-image: url("../../assets/icons/search.svg");
+    @include mxn.background-icon;
     @include mxn.small-form-field;
     padding-left: 2.25rem;
   }
@@ -36,7 +35,7 @@
     padding: 0rem 1rem;
   }
   &__logo {
-    background-image: url('../../assets/BrainFlix-logo.svg');
+    background-image: url("../../assets/BrainFlix-logo.svg");
     background-position: center;
     background-size: cover;
     height: 1.563rem;
@@ -48,15 +47,14 @@
 
   &__button {
     flex-grow: 2;
-    background-image: url('../../assets/icons/upload.svg');
-    background-repeat: no-repeat;
-    background-position: left .5rem top .5rem;
+    background-image: url("../../assets/icons/upload.svg");
+    @include mxn.background-icon;
     @include mxn.cta;
   }
 
   &__profile-pic {
     margin: 0;
-    background-image: url('../../assets/images/Mohan-muruge.jpg');
+    background-image: url("../../assets/images/Mohan-muruge.jpg");
     @include mxn.profile-pic;
   }
 

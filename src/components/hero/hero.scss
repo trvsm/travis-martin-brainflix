@@ -1,7 +1,41 @@
+@use "../../styles/partials/breakpoints" as bkpt;
+@use "../../styles/partials/colors" as clr;
+@use "../../styles/partials/fonts" as fnt;
+@use "../../styles/partials/mixins" as mxn;
+
 .hero {
   width: 100vw;
 
   &__video{
+    margin: 0;
     width: 100vw;
+  }
+
+  &__title{
+    margin: 0;
+    padding: 1rem;
+    padding-top: 1.5rem;
+    @include mxn.small-page-head;
+  }
+  
+  &__stats{
+    padding: 1rem;
+    border-top: 1px solid clr.$divider-outline;
+    border-bottom: 1px solid clr.$divider-outline;
+    color: clr.$text-label;
+    @include mxn.small-copy;
+  }
+  &__channel{
+    @include mxn.small-subhead;
+    color: clr.$primary-text;
+  }
+  &__views{
+    background-image: url('../../assets/icons/views.svg');
+    @include mxn.background-icon;
+  }
+
+  &__likes{
+    background-image: url('../../assets/icons/likes.svg');
+    @include mxn.background-icon;
   }
 }

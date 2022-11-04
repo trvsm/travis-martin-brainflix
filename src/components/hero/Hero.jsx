@@ -12,8 +12,14 @@ const Hero = (props) => {
       ></video>
       <h1 className="hero__title">{props.activeVideo.title}</h1>
       <div className="hero__stats">
-        <span className="hero__channel">By {props.activeVideo.channel}</span> | <img alt="view icon"/>{props.activeVideo.views} |
-        {props.activeVideo.timestamp} | <img alt="like icon"/>{props.activeVideo.likes}
+        <div className="hero__top">
+          <span className="hero__channel">By {props.activeVideo.channel}</span>
+          <span className="hero__views">{props.activeVideo.views}</span>
+        </div>
+        <div className="hero__bottom">
+          <div className="hero__timestamp">{props.activeVideo.timestamp}</div>
+          <div className="hero__likes">{props.activeVideo.likes}</div>
+        </div>
       </div>
       <section className="hero__description">
         {props.activeVideo.description}

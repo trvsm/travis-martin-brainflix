@@ -93,3 +93,8 @@
   text-transform: capitalize;
   @include small-copy();
 }
+
+@mixin background-icon{
+    background-repeat: no-repeat;
+    background-position: left .5rem top .5rem;
+}
