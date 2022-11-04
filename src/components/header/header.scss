@@ -62,4 +62,38 @@
   &__profile-pic--med {
     display: none;
   }
+
+  @include bkpt.medium{
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 0.5rem 1.5rem;
+
+    &__profile-pic{
+
+      &--small{
+        display: none;
+      }
+      &--med{
+        display: block;
+        margin:0 1rem;
+      }
+    }
+
+    &__search{
+      width: auto;
+      padding-right: 0.5rem;
+    }
+    &__right{
+      display: flex;
+      flex-direction: row;
+    }
+    &__upload{
+      align-items: center;
+      padding-left: 0;
+    }
+
+    &__form-field{
+      @include mxn.med-copy;
+    }
+  }
 }
