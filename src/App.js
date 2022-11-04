@@ -45,7 +45,7 @@ function App() {
       <Form />
       {/* TODO: add number of comments header above form */}
       <MainSection comments={activeDetails.comments} />
-      <Card videos={videos} clickEvent={clickEvent} />;
+      <Card videos={videos} clickEvent={clickEvent} />
     </>
   );
 }

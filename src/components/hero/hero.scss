@@ -4,10 +4,11 @@
 @use "../../styles/partials/mixins" as mxn;
 
 .hero {
-  width: 100vw;
+  width: 100%;
 
   &__video{
     margin: 0;
+    padding: 0;
     width: 100vw;
   }
 
