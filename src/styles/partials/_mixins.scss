@@ -49,8 +49,13 @@
   width: 2.25rem;
   min-width: 2.25rem;
   height: 2.25rem;
+  min-height: 2.25rem;
   background-position: center;
   background-size: cover;
+}
+@mixin med-profile{
+  width: 2.5rem;
+  height: 2.5rem;
 }
 
 @mixin small-pad {

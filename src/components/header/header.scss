@@ -76,6 +76,7 @@
       &--med{
         display: block;
         margin:0 1rem;
+        @include mxn.med-profile;
       }
     }
 

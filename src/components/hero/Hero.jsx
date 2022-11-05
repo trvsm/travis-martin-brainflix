@@ -14,10 +14,10 @@ const Hero = (props) => {
       <div className="hero__stats">
         <div className="hero__top">
           <span className="hero__channel">By {props.activeVideo.channel}</span>
-          <span className="hero__views">{props.activeVideo.views}</span>
+          <div className="hero__timestamp">{props.activeVideo.timestamp}</div>
         </div>
         <div className="hero__bottom">
-          <div className="hero__timestamp">{props.activeVideo.timestamp}</div>
+          <span className="hero__views">{props.activeVideo.views}</span>
           <div className="hero__likes">{props.activeVideo.likes}</div>
         </div>
       </div>
