@@ -4,7 +4,7 @@
 @use "../../styles/partials/mixins" as mxn;
 
 .gallery {
-    position: absolute;
+  position: absolute;
   padding: 1rem;
   padding-bottom: 0;
   width: 100vw;
@@ -13,6 +13,9 @@
     text-transform: uppercase;
     @include mxn.small-subhead;
     color: clr.$text-label;
+  }
+  @include bkpt.medium {
+    width: 48vw;
   }
 }
 
@@ -47,5 +50,14 @@
     margin: 0;
     @include mxn.small-copy;
     padding-top: 1rem;
+  }
+  @include bkpt.medium{
+    &__channel{
+      @include mxn.med-copy;
+      padding-top: .25rem;
+    }
+    &__title{
+      @include mxn.med-subhead;
+    }
   }
 }
