@@ -32,4 +32,8 @@
         padding-top: 1rem;
         @include mxn.small-copy;
     }
+
+    @include bkpt.medium{
+        
+    }
 }

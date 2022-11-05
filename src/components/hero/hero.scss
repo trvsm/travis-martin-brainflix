@@ -79,21 +79,30 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
+      @include mxn.med-copy;
     }
     &__top {
       flex-direction: row;
+      align-items: center;
+      
     }
     &__bottom {
       flex-direction: row;
+      
     }
     &__channel {
+      @include mxn.med-subhead;
       padding: 0rem 1.5rem 0rem .5rem;
     }
-    &__likes{
+    &__likes {
       padding: 0 .5rem 0 1.25rem;
     }
-    &__views{
+    &__views {
       padding-right: 1.5rem;
+    }
+
+    &__description {
+      @include mxn.med-copy;
     }
   }
 }
