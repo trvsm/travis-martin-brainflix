@@ -34,6 +34,8 @@
   &__form-comment {
     @include mxn.small-form-field;
     color: clr.$primary-text;
+    height: 5rem;
+    resize: none;
   }
 
   &__button {
@@ -43,32 +45,35 @@
     margin-top: 1rem;
   }
 
-  @include bkpt.medium{
-    &__form-flex{
-padding: .5rem 1.5rem 1.5rem 1.5rem;
+  @include bkpt.medium {
+    &__form-flex {
+      padding: 0.5rem 1.5rem 1.5rem 1.5rem;
     }
-    &__input-wrapper{
+    &__input-wrapper {
       display: flex;
       flex-direction: column;
       flex-grow: 2;
     }
-    &__form{
+    &__form {
       flex-direction: row;
       align-items: center;
     }
 
-    &__button{
+    &__button {
       margin-left: 1.5rem;
       margin-top: 1.25rem;
       padding-right: 1.25rem;
     }
 
-    &__profile-pic{
-      @include mxn.med-profile
+    &__profile-pic {
+      @include mxn.med-profile;
     }
 
-    &__form-comment{
-      @include mxn.med-copy
+    &__form-comment {
+      @include mxn.med-copy;
+      height: 2.375rem;
+      padding: .45rem;
+      padding-left: 1rem;
     }
   }
 }

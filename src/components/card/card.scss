@@ -52,6 +52,7 @@ z-index: -1000;
   &__title {
     margin: 0;
     @include mxn.small-subhead;
+    max-height: 2.25rem;
   }
 
   &__channel {
@@ -62,7 +63,7 @@ z-index: -1000;
   @include bkpt.medium{
     &__channel{
       @include mxn.med-copy;
-      padding-top: .25rem;
+      padding-top: 1rem;
     }
     &__title{
       @include mxn.med-subhead;

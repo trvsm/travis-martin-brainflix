@@ -8,7 +8,7 @@ const Form = () =>{
           <div className='comments__input-wrapper'><label className="comments__label" for="comment">
             JOIN THE CONVERSATION
           </label>
-          <input
+          <textarea
             type="text"
             className="comments__form-comment"
             name="comment"

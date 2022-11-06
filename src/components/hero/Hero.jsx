@@ -24,6 +24,7 @@ const Hero = (props) => {
       <section className="hero__description">
         {props.activeVideo.description}
       </section>
+      <p className="hero__comments">{props.activeVideo.comments.length} Comments</p>
     </div>
   );
 };
