@@ -41,11 +41,17 @@ function App() {
   return (
     <>
       <Header />
-      <Hero key={activeDetails.id} activeVideo={activeDetails} />
-      <Form />
-      {/* TODO: add number of comments header above form */}
-      <MainSection comments={activeDetails.comments} />
-      <Card videos={videos} clickEvent={clickEvent} />
+      <div className="large-flex">
+        <div className="left">
+          <Hero key={activeDetails.id} activeVideo={activeDetails} />
+          <Form />
+          {/* TODO: add number of comments header above form */}
+          <MainSection comments={activeDetails.comments} />
+        </div>
+        <div>
+          <Card videos={videos} clickEvent={clickEvent} />
+        </div>
+      </div>
     </>
   );
 }

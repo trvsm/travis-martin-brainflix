@@ -97,4 +97,8 @@
       @include mxn.med-copy;
     }
   }
+
+  @include bkpt.large{
+    padding: .5rem 4.75rem;
+  }
 }

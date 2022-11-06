@@ -17,6 +17,14 @@
   @include bkpt.medium {
     width: 48vw;
   }
+
+  @include bkpt.large{
+    padding-top: 46.25rem;
+    align-items: flex-end;
+width: 28vw;
+border-left: 1px solid clr.$divider-outline;
+z-index: -1000;
+  }
 }
 
 .card {

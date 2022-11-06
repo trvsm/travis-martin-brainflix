@@ -16,3 +16,16 @@ html {
 *::after {
   box-sizing: inherit;
 }
+
+@include bkpt.large{
+  .large-flex{
+    display: flex;
+
+  }
+  .left{
+    width: 65%;
+    padding-left: 3.25rem;
+  }
+
+
+}
