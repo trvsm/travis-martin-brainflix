@@ -32,6 +32,7 @@ function App() {
 
   const clickEvent = (event, videoId) => {
     event.preventDefault();
+    console.log(event)
     setDefaultVideo(videoId);
     setVideos(nextVideoList(videoId));
     setActiveDetails(getVideoDetails(videoId));

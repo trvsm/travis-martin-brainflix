@@ -18,12 +18,13 @@
     width: 48vw;
   }
 
-  @include bkpt.large{
-    padding-top: 46.25rem;
+  @include bkpt.large {
+    padding-top: 1.25rem;
+    margin-top: 45rem;
     align-items: flex-end;
-width: 28vw;
-border-left: 1px solid clr.$divider-outline;
-z-index: -1000;
+    width: 28vw;
+    border-left: 1px solid clr.$divider-outline;
+    z-index: 1;
   }
 }
 
@@ -59,12 +60,12 @@ z-index: -1000;
     @include mxn.small-copy;
     padding-top: 1rem;
   }
-  @include bkpt.medium{
-    &__channel{
+  @include bkpt.medium {
+    &__channel {
       @include mxn.med-copy;
-      padding-top: .25rem;
+      padding-top: 0.25rem;
     }
-    &__title{
+    &__title {
       @include mxn.med-subhead;
     }
   }

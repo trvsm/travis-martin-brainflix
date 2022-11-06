@@ -20,10 +20,11 @@ html {
 @include bkpt.large{
   .large-flex{
     display: flex;
+    width: 65%;
 
   }
   .left{
-    width: 65%;
+    width: 100%;
     padding-left: 3.25rem;
   }
 
