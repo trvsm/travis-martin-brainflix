@@ -25,6 +25,15 @@
     @include mxn.background-icon;
     @include mxn.small-form-field;
     padding-left: 2.25rem;
+        &:focus{
+          outline: none;
+      border-width: 2px;
+      border-style: solid;
+      border-color: clr.$primary-cta;
+    }
+    &:required{
+      border: 1px solid red;
+    }
   }
   &__form {
     flex-grow: 2;

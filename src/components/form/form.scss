@@ -36,6 +36,13 @@
     color: clr.$primary-text;
     height: 5rem;
     resize: none;
+    &:focus {
+      outline: none;
+      border-width: 2px;
+      border-style: solid;
+      border-color: clr.$primary-cta;
+    }
+
   }
 
   &__button {
@@ -72,7 +79,7 @@
     &__form-comment {
       @include mxn.med-copy;
       height: 2.375rem;
-      padding: .45rem;
+      padding: 0.45rem;
       padding-left: 1rem;
     }
   }
