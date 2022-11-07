@@ -1,3 +1,55 @@
-.mainSection{
-    background-color: #fff;
+@use "../../styles/partials/breakpoints" as bkpt;
+@use "../../styles/partials/colors" as clr;
+@use "../../styles/partials/fonts" as fnt;
+@use "../../styles/partials/mixins" as mxn;
+.comment{
+    display: flex;
+    padding: 1rem;
+    border-bottom: 1px solid clr.$divider-outline;
+
+    &__profile-pic{
+        margin: 0;
+       @include mxn.profile-pic;}
+
+    &__right-section{
+        display: flex;
+        flex-direction: column;
+        padding-left: 1rem;
+    }
+    &__attribution{
+        display: flex;
+        justify-content: space-between;
+    }
+    &__name{
+        @include mxn.small-subhead;
+    }
+    &__timestamp{
+        @include mxn.small-copy;
+        color: clr.$text-label;
+    }
+    &__comment{
+        margin: 0;
+        padding-top: 1rem;
+        @include mxn.small-copy;
+    }
+
+    @include bkpt.medium{
+        padding: 1.5rem;
+        
+        &__profile-pic{
+            @include mxn.med-profile;
+        }
+        
+        &__comment{
+            @include mxn.med-copy;
+            padding-top: .5rem;
+
+        }
+        &__timestamp{
+            @include mxn.med-copy;
+        }
+        &__name{
+            @include mxn.med-subhead;
+        }
+    }
 }

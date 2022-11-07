@@ -1,31 +1,113 @@
+@use "../../styles/partials/breakpoints" as bkpt;
+@use "../../styles/partials/colors" as clr;
+@use "../../styles/partials/fonts" as fnt;
+@use "../../styles/partials/mixins" as mxn;
+
 .header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: clr.$background-n-cta;
+  width: 100vw;
+  padding: 1rem;
+
+
+  &__search {
     display: flex;
+    width: 100vw;
+    padding: 1rem;
     justify-content: space-between;
-    min-height: 3.125rem;
-    padding: 2rem 0;
-    background: #dddddd;
-    border-bottom: solid 2px;
-    z-index: 10;
-  
-    &__logo {
-        display: flex;
-        align-items: center;
-        font-size: 2rem;
+  }
+
+  &__search-input {
+    width: 100%;
+    background-image: url("../../assets/icons/search.svg");
+    @include mxn.background-icon;
+    @include mxn.small-form-field;
+    padding-left: 2.25rem;
+        &:focus{
+          outline: none;
+      border-width: 2px;
+      border-style: solid;
+      border-color: clr.$primary-cta;
     }
-  
-    &__links {
-        display: flex;
-        align-items: center;
-        text-decoration: none;
-    
-        &--left {
-            padding-left: 1.25rem;
-            align-self: left;
-        }
-    
-        &--right {
-            padding-right: 1.25rem;
-            align-self: right;
-        }
+    &:required{
+      border: 1px solid red;
     }
+  }
+  &__form {
+    flex-grow: 2;
+    padding-right: 1rem;
+  }
+
+  &__upload {
+    display: flex;
+    padding: 0rem 1rem;
+  }
+  &__logo {
+    background-image: url("../../assets/BrainFlix-logo.svg");
+    background-position: center;
+    background-size: cover;
+    height: 1.563rem;
+    width: 7.5rem;
+    display: flex;
+    align-items: center;
+    font-size: 2rem;
+  }
+
+  &__button {
+    flex-grow: 2;
+    background-image: url("../../assets/icons/upload.svg");
+    @include mxn.background-icon;
+    @include mxn.cta;
+  }
+
+  &__profile-pic {
+    margin: 0;
+    background-image: url("../../assets/images/Mohan-muruge.jpg");
+    @include mxn.profile-pic;
+  }
+
+  &__profile-pic--med {
+    display: none;
+  }
+
+  @include bkpt.medium{
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 0.5rem 1.5rem;
+
+    &__profile-pic{
+
+      &--small{
+        display: none;
+      }
+      &--med{
+        display: block;
+        margin:0 1rem;
+        @include mxn.med-profile;
+      }
+    }
+
+    &__search{
+      width: auto;
+      padding-right: 0.5rem;
+    }
+    &__right{
+      display: flex;
+      flex-direction: row;
+    }
+    &__upload{
+      align-items: center;
+      padding-left: 0;
+    }
+
+    &__form-field{
+      @include mxn.med-copy;
+    }
+  }
+
+  @include bkpt.large{
+    padding: .5rem 4.75rem;
+  }
 }

@@ -1,8 +1,14 @@
+@use './partials/breakpoints' as bkpt;
+@use './partials/colors' as clr;
+@use './partials/fonts' as fnt;
+@use './partials/mixins' as mxn;
+
 body,
 html {
   margin: 0;
-  font-family: "Arial", sans-serif;
+  font-family: "Avenir", sans-serif;
   box-sizing: border-box;
+  color: clr.$primary-text;
 }
 
 *,
@@ -11,13 +17,20 @@ html {
   box-sizing: inherit;
 }
 
-a {
-  padding: 0.625rem;
-  text-decoration: none;
-  font-weight: bold;
-  color: black;
+@include bkpt.large{
+  .large-flex{
+    display: flex;
+    width: 65%;
 
-  &:hover {
-    color: #545454;
   }
+  .left{
+    width: 100%;
+    padding-left: 3.25rem;
+  }
+
+
+}
+
+button:hover{
+  background-color: clr.$cta-hover;
 }

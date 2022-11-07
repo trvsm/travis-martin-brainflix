@@ -1,0 +1,106 @@
+@use "./colors" as clr;
+@use "./fonts" as fnt;
+
+@mixin small-page-head {
+  font-size: 1.5rem;
+  line-height: 2rem;
+  font-weight: 700;
+}
+
+@mixin section-buttons {
+  font-size: 0.75rem;
+  line-height: 1.25rem;
+  font-weight: 700;
+}
+
+@mixin small-subhead {
+  font-size: 0.812rem;
+  line-height: 1.125rem;
+  font-weight: 700;
+}
+
+@mixin small-copy {
+  font-size: 0.812rem;
+  line-height: 1.125rem;
+  font-weight: 400;
+}
+
+@mixin med-page-head {
+  font-size: 2.062rem;
+  line-height: 2.75rem;
+  font-weight: 700;
+}
+
+@mixin med-subhead {
+  font-size: 0.875rem;
+  line-height: 1.375rem;
+  font-weight: 700;
+}
+
+@mixin med-copy {
+  font-size: 0.875rem;
+  line-height: 1.375rem;
+  font-weight: 400;
+}
+
+@mixin profile-pic {
+  border-radius: 50%;
+  background-color: clr.$divider-outline;
+  width: 2.25rem;
+  min-width: 2.25rem;
+  height: 2.25rem;
+  min-height: 2.25rem;
+  background-position: center;
+  background-size: cover;
+}
+@mixin med-profile{
+  width: 2.5rem;
+  min-width: 2.5rem;
+  height: 2.5rem;
+}
+
+@mixin small-pad {
+  padding: 1rem;
+}
+
+@mixin med-pad {
+  padding: 1.5rem;
+}
+
+@mixin logo-size {
+  height: 1.563rem;
+  width: 7.5rem;
+}
+
+@mixin cta {
+  height: 2.5rem;
+  min-width: 9.375rem;
+  padding-left: 2rem;
+  padding-right: 2rem;
+  color: clr.$background-n-cta;
+  background-color: clr.$primary-cta;
+  border: none;
+  border-radius: .25rem;
+  text-transform: uppercase;
+  font-family: "Avenir", sans-serif;
+  @include section-buttons()
+}
+
+@mixin small-form-field {
+  height: 2.5rem;
+  min-width: 15rem;
+  border-radius: 0.25rem;
+  padding: 0.75rem;
+  border-width: 1px;
+  border-style: solid;
+  border-color: clr.$divider-outline;
+  font-family: "Avenir", sans-serif;
+  background-color: clr.$form-background;
+  text-transform: capitalize;
+  @include small-copy();
+}
+
+@mixin background-icon{
+    background-repeat: no-repeat;
+    background-position: left .5rem top .5rem;
+}
