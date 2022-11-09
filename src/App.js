@@ -1,73 +1,79 @@
 import "./styles/main.scss";
-import { useState } from "react";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
-
-// source data
-import videoDetails from "../src/data/video-details.json";
+import axios from "axios";
+import { useState, useEffect } from "react";
+import { useParams } from "react-router-dom";
 
 import Card from "./components/card/Card";
 import Form from "./components/form/Form";
 import Header from "./components/header/Header";
 import Hero from "./components/hero/Hero";
 import MainSection from "./components/mainsection/MainSection";
-import axios from "axios";
+import Upload from "./pages/upload/Upload";
 
 //info to make and store api requests
-const brainflixKey = "29ea6abf-4f80-41fe-996e-c95e8069ab12";
-const videoEndpoint = "https://project-2-api.herokuapp.com/videos?api_key=";
-const videoData = [];
+const brainflixKey = "?api_key=29ea6abf-4f80-41fe-996e-c95e8069ab12";
+const videoEndpoint = "https://project-2-api.herokuapp.com/videos";
 
-axios
-  .get(videoEndpoint + brainflixKey)
-  .then((response) => {
-    for (let index = 0; index < response.data.length; index++) {
-      videoData[index] = response.data[index];
-    }
-    return videoData;
-  })
-  //getting a string successfully; filter video list
-  .then((response) => {
-    console.log(typeof response[0].id);
-  });
+let videoId = "84e96018-4022-434e-80bf-000ce4cd12b8";
+const videoData = [];
+let videoDetails = {};
 
 const nextVideoList = (videoId) => {
   return videoData.filter((video) => video.id !== videoId);
-};
-
-const getVideoDetails = (videoId) => {
-  return videoDetails.find((video) => video.id === videoId);
 };
 
 function App() {
   const [defaultVideo, setDefaultVideo] = useState(
     "84e96018-4022-434e-80bf-000ce4cd12b8"
   );
-  const [activeDetails, setActiveDetails] = useState(
-    getVideoDetails(defaultVideo)
-  );
   const [videos, setVideos] = useState(nextVideoList(defaultVideo));
+  const [activeDetails, setActiveDetails] = useState(videoDetails);
 
-  const clickEvent = (event, videoId) => {
-    event.preventDefault();
-    console.log(event);
-    setDefaultVideo(videoId);
-    setVideos(nextVideoList(videoId));
-    setActiveDetails(getVideoDetails(videoId));
-    // set the clicked card to active video
-  };
+  const params = useParams();
+
+  //TODO: replace videoId with defaultVideo?
+  // gets active video stats and comments, sets to state
+  useEffect(() => {
+    axios.get(`${videoEndpoint}/${videoId}${brainflixKey}`).then((response) => {
+      videoDetails = response.data;
+      setActiveDetails(videoDetails);
+    });
+  }, []);
+
+  //gets video thumbnail, sets to next videos list, filters out video set to default (details)
+  useEffect(() => {
+    axios.get(videoEndpoint + brainflixKey).then((response) => {
+      for (let index = 0; index < response.data.length; index++) {
+        videoData[index] = response.data[index];
+      }
+      setVideos(nextVideoList(defaultVideo));
+    });
+  }, [defaultVideo]);
+
+  useEffect(() => {
+    if (params.videoId) {
+      axios
+        .get(`${videoEndpoint}/${params.videoId}${brainflixKey}`)
+        .then((response) => {
+          setDefaultVideo(response.data.id);
+          setActiveDetails(response.data);
+          setVideos(nextVideoList(response.data.id));
+        });
+    }
+  }, [params]);
 
   return (
     <>
-      <Header />
       <div className="large-flex">
         <div className="left">
           <Hero key={activeDetails.id} activeVideo={activeDetails} />
           <Form />
-          {/* TODO: add number of comments header above form */}
-          <MainSection comments={activeDetails.comments} />
+          {Object.keys(activeDetails).length > 0 && (
+            <MainSection comments={activeDetails.comments} />
+          )}
         </div>
         <div>
-          <Card videos={videos} clickEvent={clickEvent} />
+          <Card videos={videos} />
         </div>
       </div>
     </>
