@@ -1,0 +1,10 @@
+@use "../../styles/partials/breakpoints" as bkpt;
+@use "../../styles/partials/colors" as clr;
+@use "../../styles/partials/fonts" as fnt;
+@use "../../styles/partials/mixins" as mxn;
+
+.upload__wrapper{
+    border-top: 1px solid clr.$divider-outline;
+    display: flex;
+    flex-direction: column;
+}

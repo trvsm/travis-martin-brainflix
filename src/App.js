@@ -5,10 +5,8 @@ import { useParams } from "react-router-dom";
 
 import Card from "./components/card/Card";
 import Form from "./components/form/Form";
-import Header from "./components/header/Header";
 import Hero from "./components/hero/Hero";
 import MainSection from "./components/mainsection/MainSection";
-import Upload from "./pages/upload/Upload";
 
 //info to make and store api requests
 const brainflixKey = "?api_key=29ea6abf-4f80-41fe-996e-c95e8069ab12";
@@ -22,10 +20,13 @@ const nextVideoList = (videoId) => {
   return videoData.filter((video) => video.id !== videoId);
 };
 
+
+
 function App() {
   const [defaultVideo, setDefaultVideo] = useState(
     "84e96018-4022-434e-80bf-000ce4cd12b8"
   );
+  // can change all defaultVideo to video details, except initial video shows in side
   const [videos, setVideos] = useState(nextVideoList(defaultVideo));
   const [activeDetails, setActiveDetails] = useState(videoDetails);
 
@@ -50,7 +51,11 @@ function App() {
     });
   }, [defaultVideo]);
 
+  // when params updated make api call, use to set main video, & video details
+  // another API call?
   useEffect(() => {
+    // I see that params is empty object on logo click, how to set state to default
+    console.log(params);
     if (params.videoId) {
       axios
         .get(`${videoEndpoint}/${params.videoId}${brainflixKey}`)
