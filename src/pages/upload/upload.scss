@@ -10,23 +10,55 @@
     flex-direction: column;
 
 }
+&__title{
+    @include mxn.small-page-head;
+    margin: 0;
+    padding: 1rem;
+    padding-top: 1.5rem;
+}
+
 &__thumbnail{
     border-radius: .25rem;
     width: 90vw;
     aspect-ratio: 16/9;
-    background-image: url(../../assets/images/Mohan-muruge.jpg);
+    background-size: cover;
+    background-image: url(../../assets/images/Upload-video-preview.jpg);
+}
+&__thumbnail-label{
+    margin: 0;
+    @include mxn.small-subhead;
+    color: clr.$text-label;
 }
 &__form{
     display: flex;
     flex-direction: column;
+        padding: 1rem;
+    padding-top: .5rem;
 }
 &__form-contents{
     display: flex;
     flex-direction: column;
+
+}
+&__label{
+    @include mxn.small-subhead;
+    color: clr.$text-label;
+    padding-top: 1rem;
+}
+
+&__input{
+    @include mxn.small-form-field;
+    &--textarea{
+        height: 5rem;
+    }
 }
 &__buttons{
     display: flex;
     flex-direction: column-reverse;
+}
+&__success{
+    padding: 1.5rem;
+@include mxn.small-subhead;
 }
 
 @include bkpt.medium{

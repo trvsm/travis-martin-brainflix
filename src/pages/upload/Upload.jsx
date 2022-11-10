@@ -28,22 +28,28 @@ export default function Upload() {
     <div className="upload__wrapper">
       <h1 className="upload__title">Upload Video</h1>
       <div className="upload__success">{uploadMessage}</div>
-        <form className="upload__form" action="submit" onSubmit={submitHandler}>
+      <form className="upload__form" action="submit" onSubmit={submitHandler}>
         <section className="upload__video">
-          <p>VIDEO THUMBNAIL</p>
+          <p className="upload__thumbnail-label">VIDEO THUMBNAIL</p>
           <div className="upload__thumbnail"></div>
         </section>
-      <section className="upload__form-contents">
-          <label htmlFor="title">TITLE YOUR VIDEO</label>
+        <section className="upload__form-contents">
+          <label className="upload__label" htmlFor="title">
+            TITLE YOUR VIDEO
+          </label>
           <input
+            className="upload__input"
             placeholder="Add a title to your video"
             type="text"
             name="title"
             onChange={handleChangeTitle}
             value={uploadTitle}
           />
-          <label htmlFor="description">ADD A VIDEO DESCRIPTION</label>
-          <input
+          <label className="upload__label" htmlFor="description">
+            ADD A VIDEO DESCRIPTION
+          </label>
+          <textarea
+            className="upload__input upload__input--textarea"
             placeholder="Add a description to your video"
             name="description"
             type="textarea"
@@ -55,8 +61,8 @@ export default function Upload() {
             <button>CANCEL</button>
             <button>PUBLISH</button>
           </div>
-      </section>
-        </form>
+        </section>
+      </form>
     </div>
   );
 }
