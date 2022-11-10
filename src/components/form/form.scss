@@ -42,8 +42,13 @@
       border-style: solid;
       border-color: clr.$primary-cta;
     }
-
   }
+  
+      &__input-wrapper {
+        display: flex;
+        flex-direction: column;
+
+      }
 
   &__button {
     @include mxn.cta;
