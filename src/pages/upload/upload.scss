@@ -3,8 +3,25 @@
 @use "../../styles/partials/fonts" as fnt;
 @use "../../styles/partials/mixins" as mxn;
 
-.upload__wrapper{
+.upload{
+&__wrapper{
     border-top: 1px solid clr.$divider-outline;
     display: flex;
     flex-direction: column;
+
+}
+&__thumbnail{
+    border-radius: .25rem;
+    width: 90vw;
+    aspect-ratio: 16/9;
+    background-image: url(../../assets/images/Mohan-muruge.jpg);
+}
+&__form{
+    display: flex;
+    flex-direction: column;
+}
+&__buttons{
+    display: flex;
+    flex-direction: column-reverse;
+}
 }
