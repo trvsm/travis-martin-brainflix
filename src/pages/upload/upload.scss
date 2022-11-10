@@ -3,83 +3,106 @@
 @use "../../styles/partials/fonts" as fnt;
 @use "../../styles/partials/mixins" as mxn;
 
-.upload{
-&__wrapper{
+.upload {
+  &__wrapper {
     border-top: 1px solid clr.$divider-outline;
     display: flex;
     flex-direction: column;
-
-}
-&__title{
+  }
+  &__title {
     @include mxn.small-page-head;
     margin: 0;
     padding: 1rem;
     padding-top: 1.5rem;
-}
+  }
 
-&__thumbnail{
-    border-radius: .25rem;
+  &__thumbnail {
+    border-radius: 0.25rem;
     width: 90vw;
     aspect-ratio: 16/9;
     background-size: cover;
     background-image: url(../../assets/images/Upload-video-preview.jpg);
-}
-&__thumbnail-label{
+  }
+  &__thumbnail-label {
     margin: 0;
     @include mxn.small-subhead;
     color: clr.$text-label;
-}
-&__form{
+  }
+  &__form {
     display: flex;
     flex-direction: column;
-        padding: 1rem;
-    padding-top: .5rem;
-}
-&__form-contents{
+    padding: 1rem;
+    padding-top: 0.5rem;
+  }
+  &__form-contents {
     display: flex;
     flex-direction: column;
-
-}
-&__label{
+  }
+  &__label {
     @include mxn.small-subhead;
     color: clr.$text-label;
     padding-top: 1rem;
-}
+  }
 
-&__input{
+  &__input {
     @include mxn.small-form-field;
-    &--textarea{
-        height: 5rem;
+    &--textarea {
+      height: 5rem;
+      resize: none;
     }
-}
-&__buttons{
+  }
+  &__buttons {
     display: flex;
     flex-direction: column-reverse;
-}
-&__success{
-    padding: 1.5rem;
-@include mxn.small-subhead;
-}
+  }
+  &__button {
+    margin-top: 1rem;
+    @include mxn.cta;
+        background-image: url(../../assets/icons/publish.svg);
+    @include mxn.background-icon;
+    &:hover {
+      background-color: clr.$cta-hover;
+    }
+    &--cancel{
+        color: clr.$primary-cta;
+        background-color: clr.$background-n-cta;
+        background-image: none;
+    }
+  }
+  &__success {
+    padding: 0 1.5rem;
+    @include mxn.small-subhead;
+  }
 
-@include bkpt.medium{
-    &__thumbnail{
-        width: 50vw;
+  @include bkpt.medium {
+    &__title{
+        @include mxn.med-page-head;
+        padding: 1.5rem;
+        padding-top: 2rem;
     }
-    &__video{
-        border-top: 1px solid clr.$divider-outline;
-    }
-    &__buttons{
-        flex-direction: row;
-        justify-content: flex-end;
-        margin-top: 1rem;
-        padding-top: 1rem;
-        border-top: 1px solid clr.$divider-outline
-    }
-}
-
-@include bkpt.large{
     &__form{
-        flex-direction: row;
+        padding: 1.5rem;
+        padding-top: 0;
     }
-}
+    &__thumbnail {
+      width: 50vw;
+    }
+    &__video {
+      border-top: 1px solid clr.$divider-outline;
+      padding-top: 1.5rem;
+    }
+    &__buttons {
+      flex-direction: row;
+      justify-content: flex-end;
+      margin-top: 1rem;
+      padding-top: 1rem;
+      border-top: 1px solid clr.$divider-outline;
+    }
+  }
+
+  @include bkpt.large {
+    &__form {
+      flex-direction: row;
+    }
+  }
 }

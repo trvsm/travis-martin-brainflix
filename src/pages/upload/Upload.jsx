@@ -58,8 +58,8 @@ export default function Upload() {
           />
 
           <div className="upload__buttons">
-            <button>CANCEL</button>
-            <button>PUBLISH</button>
+            <button onClick={()=>navigate('/')} className='upload__button upload__button--cancel'>CANCEL</button>
+            <button className='upload__button' >PUBLISH</button>
           </div>
         </section>
       </form>
