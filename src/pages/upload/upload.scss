@@ -1,0 +1,153 @@
+@use "../../styles/partials/breakpoints" as bkpt;
+@use "../../styles/partials/colors" as clr;
+@use "../../styles/partials/fonts" as fnt;
+@use "../../styles/partials/mixins" as mxn;
+
+.upload {
+  &__wrapper {
+    border-top: 1px solid clr.$divider-outline;
+    display: flex;
+    flex-direction: column;
+  }
+  &__title {
+    @include mxn.small-page-head;
+    margin: 0;
+    padding: 1rem;
+    padding-top: 1.5rem;
+  }
+
+  &__thumbnail {
+    border-radius: 0.25rem;
+    width: 90vw;
+    aspect-ratio: 16/9;
+    background-size: cover;
+    background-image: url(../../assets/images/Upload-video-preview.jpg);
+  }
+  &__thumbnail-label {
+    margin: 0;
+    @include mxn.small-subhead;
+    color: clr.$text-label;
+  }
+  &__form {
+    display: flex;
+    flex-direction: column;
+    padding: 1rem;
+    padding-top: 0.5rem;
+  }
+  &__form-contents {
+    display: flex;
+    flex-direction: column;
+  }
+  &__label {
+    @include mxn.small-subhead;
+    color: clr.$text-label;
+    padding-top: 1rem;
+  }
+
+  &__input {
+    @include mxn.small-form-field;
+    &:focus {
+      outline: none;
+      border-width: 2px;
+      border-style: solid;
+      border-color: clr.$primary-cta;
+    }
+    &--textarea {
+      height: 5rem;
+      resize: none;
+    }
+  }
+  &__buttons {
+    display: flex;
+    flex-direction: column-reverse;
+  }
+  &__button {
+    margin-top: 1rem;
+    @include mxn.cta;
+    background-image: url(../../assets/icons/publish.svg);
+    @include mxn.background-icon;
+    &:hover {
+      background-color: clr.$cta-hover;
+    }
+    &--cancel {
+      color: clr.$primary-cta;
+      background-color: clr.$background-n-cta;
+      background-image: none;
+    }
+  }
+  &__success {
+    padding: 0 1.5rem;
+    @include mxn.small-subhead;
+  }
+
+  @include bkpt.medium {
+    &__title {
+      @include mxn.med-page-head;
+      padding: 1.5rem;
+      padding-top: 2rem;
+    }
+    &__form {
+      padding: 1.5rem;
+      padding-top: 0;
+    }
+    &__thumbnail {
+      width: 50vw;
+    }
+    &__video {
+      border-top: 1px solid clr.$divider-outline;
+      padding-top: 1.5rem;
+    }
+    &__buttons {
+      flex-direction: row;
+      justify-content: flex-end;
+      margin-top: 1rem;
+
+      padding-top: 1rem;
+      border-top: 1px solid clr.$divider-outline;
+    }
+    &__button {
+      margin-left: 1rem;
+    }
+  }
+
+  @include bkpt.large {
+    &__wrapper {
+      padding: 0 4.75rem;
+    }
+    &__title {
+      padding: 0;
+      padding-top: 2rem;
+      padding-bottom: 1.5rem;
+      border-bottom: 1px solid clr.$divider-outline;
+    }
+    &__thumbnail {
+      width: 33vw;
+    }
+    &__video {
+      border: none;
+      display: flex;
+      flex-direction: column;
+      margin-bottom: 4.5rem;
+      border-bottom: 1px solid clr.$divider-outline;
+    }
+    &__form {
+      flex-direction: row;
+      padding: 0;
+    }
+    &__form-contents {
+      padding-left: 1.5rem;
+    }
+    &__label {
+      padding-top: 1.5rem;
+    }
+    &__form-contents {
+      flex-grow: 2;
+    }
+    &__input--textarea {
+      height: 9.75rem;
+    }
+    &__buttons {
+      margin-top: 1.5rem;
+    }
+  }
+}

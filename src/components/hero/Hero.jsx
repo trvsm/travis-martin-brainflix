@@ -21,6 +21,7 @@ let time = ()=>{formatCommentDate(props.activeVideo.timestamp);}
 time();
 
   return (
+    Object.keys(props.activeVideo).length > 0 &&(
       <div className="hero">
       <video
         className="hero__video"
@@ -42,7 +43,7 @@ time();
         {props.activeVideo.description}
       </section>
       <p className="hero__comments">{props.activeVideo.comments.length} Comments</p>
-    </div>
+    </div>)
   );
 };
 

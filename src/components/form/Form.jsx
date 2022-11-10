@@ -5,7 +5,7 @@ const Form = () =>{
       <div className="comments__form-flex">
         <section className="comments__profile-pic"></section>
         <form className="comments__form" id="conversation">
-          <div className='comments__input-wrapper'><label className="comments__label" for="comment">
+          <div className='comments__input-wrapper'><label className="comments__label" htmlFor="comment">
             JOIN THE CONVERSATION
           </label>
           <textarea

@@ -15,17 +15,15 @@ const formatCommentDate = (dateMS) => {
   //returns current date
 };
 
-const MainSection = ({comments}) => {
-
+const MainSection = ({ comments }) => {
   // a function to map from JSON to comment card
-  return (
-    comments.map((comment) => {
-      let time = () => {
-        formatCommentDate(comment.timestamp);
-      };
-      time();
-      return (
-            <section className="comment" key={comment.id}>        
+  return comments.map((comment) => {
+    let time = () => {
+      formatCommentDate(comment.timestamp);
+    };
+    time();
+    return (
+      <section className="comment" key={comment.id}>
         <div className="comment__profile-pic"></div>
         <div className="comment__right-section">
           <div className="comment__attribution">
@@ -35,10 +33,8 @@ const MainSection = ({comments}) => {
           <p className="comment__comment">{comment.comment}</p>
         </div>
       </section>
-      
-          );
-        })
-  );
+    );
+  });
 };
 
 export default MainSection;
