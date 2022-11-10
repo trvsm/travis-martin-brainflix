@@ -21,34 +21,36 @@ const nextVideoList = (videoId) => {
 
 function App() {
   const [defaultVideo, setDefaultVideo] = useState(
-    "84e96018-4022-434e-80bf-000ce4cd12b8"
+    ""
   );
   // can change all defaultVideo to video details, except initial video shows in side
-  const [videos, setVideos] = useState(nextVideoList(defaultVideo));
+  const [videos, setVideos] = useState(videoData);
   const [activeDetails, setActiveDetails] = useState(videoDetails);
 
   const params = useParams();
   const navigate = useNavigate();
 
   // gets active video stats and comments, sets to state
-  useEffect(() => {
-    axios
-      .get(`${videoEndpoint}/${defaultVideo}${brainflixKey}`)
-      .then((response) => {
-        videoDetails = response.data;
-        setActiveDetails(videoDetails);
-      });
-  }, [defaultVideo]);
+
+  // useEffect(() => {
+  //   axios
+  //     .get(`${videoEndpoint}/${defaultVideo}${brainflixKey}`)
+  //     .then((response) => {
+  //       videoDetails = response.data;
+  //       setActiveDetails(videoDetails);
+  //     });
+  // }, [defaultVideo]);
 
   //gets video thumbnail, sets to next videos list, filters out video set to default (details)
-  useEffect(() => {
-    axios.get(videoEndpoint + brainflixKey).then((response) => {
-      for (let index = 0; index < response.data.length; index++) {
-        videoData[index] = response.data[index];
-      }
-      setVideos(nextVideoList(defaultVideo));
-    });
-  }, [defaultVideo]);
+
+  // useEffect(() => {
+  //   axios.get(videoEndpoint + brainflixKey).then((response) => {
+  //     for (let index = 0; index < response.data.length; index++) {
+  //       videoData[index] = response.data[index];
+  //     }
+  //     setVideos(nextVideoList(defaultVideo));
+  //   });
+  // }, [defaultVideo]);
 
   // when params updated make api call, use to set main video, & video details
   // another API call to return to default??
@@ -60,9 +62,28 @@ function App() {
       axios
         .get(`${videoEndpoint}/${params.videoId}${brainflixKey}`)
         .then((response) => {
+          let active = response.data
           setDefaultVideo(response.data.id);
           setActiveDetails(response.data);
-          setVideos(nextVideoList(response.data.id));
+          //setVideos in separate call to get video list & filter
+          setVideos(active.filter((video) => video.id !== response.data.id));
+        });
+    } else {
+      axios
+        .get(`${videoEndpoint}${brainflixKey}`)
+        .then((response) => {
+          const firstVid = response.data[0].id;
+          console.log(firstVid);
+          setDefaultVideo(firstVid);
+          setVideos(response.data.filter((video) => video.id !== firstVid));
+          return firstVid;
+        })
+        .then((firstVid) => {
+          axios
+            .get(`${videoEndpoint}/${firstVid}${brainflixKey}`)
+            .then((response) => {
+              setActiveDetails(response.data);
+            });
         });
     }
   }, [params]);
