@@ -20,8 +20,34 @@
     display: flex;
     flex-direction: column;
 }
+&__form-contents{
+    display: flex;
+    flex-direction: column;
+}
 &__buttons{
     display: flex;
     flex-direction: column-reverse;
+}
+
+@include bkpt.medium{
+    &__thumbnail{
+        width: 50vw;
+    }
+    &__video{
+        border-top: 1px solid clr.$divider-outline;
+    }
+    &__buttons{
+        flex-direction: row;
+        justify-content: flex-end;
+        margin-top: 1rem;
+        padding-top: 1rem;
+        border-top: 1px solid clr.$divider-outline
+    }
+}
+
+@include bkpt.large{
+    &__form{
+        flex-direction: row;
+    }
 }
 }

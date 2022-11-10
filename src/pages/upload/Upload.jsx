@@ -28,38 +28,35 @@ export default function Upload() {
     <div className="upload__wrapper">
       <h1 className="upload__title">Upload Video</h1>
       <div className="upload__success">{uploadMessage}</div>
-      <section className="upload__video">
-        <p>VIDEO THUMBNAIL</p>
-        <div className="upload__thumbnail"></div>
-      </section>
-      <section>
-        <form className='upload__form' action="submit" onSubmit={submitHandler}>
-          <label htmlFor="title">
-            TITLE YOUR VIDEO
-            <input
-              placeholder="Add a title to your video"
-              type="text"
-              name="title"
-              onChange={handleChangeTitle}
-              value={uploadTitle}
-            />
-          </label>
-          <label htmlFor="description">
-            ADD A VIDEO DESCRIPTION
-            <input
-              placeholder="Add a description to your video"
-              name="description"
-              type="textarea"
-              onChange={handleChangeDescription}
-              value={uploadDescription}
-            />
-          </label>
+        <form className="upload__form" action="submit" onSubmit={submitHandler}>
+        <section className="upload__video">
+          <p>VIDEO THUMBNAIL</p>
+          <div className="upload__thumbnail"></div>
+        </section>
+      <section className="upload__form-contents">
+          <label htmlFor="title">TITLE YOUR VIDEO</label>
+          <input
+            placeholder="Add a title to your video"
+            type="text"
+            name="title"
+            onChange={handleChangeTitle}
+            value={uploadTitle}
+          />
+          <label htmlFor="description">ADD A VIDEO DESCRIPTION</label>
+          <input
+            placeholder="Add a description to your video"
+            name="description"
+            type="textarea"
+            onChange={handleChangeDescription}
+            value={uploadDescription}
+          />
+
           <div className="upload__buttons">
             <button>CANCEL</button>
             <button>PUBLISH</button>
           </div>
-        </form>
       </section>
+        </form>
     </div>
   );
 }
