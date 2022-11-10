@@ -58,15 +58,15 @@
   &__button {
     margin-top: 1rem;
     @include mxn.cta;
-        background-image: url(../../assets/icons/publish.svg);
+    background-image: url(../../assets/icons/publish.svg);
     @include mxn.background-icon;
     &:hover {
       background-color: clr.$cta-hover;
     }
-    &--cancel{
-        color: clr.$primary-cta;
-        background-color: clr.$background-n-cta;
-        background-image: none;
+    &--cancel {
+      color: clr.$primary-cta;
+      background-color: clr.$background-n-cta;
+      background-image: none;
     }
   }
   &__success {
@@ -75,14 +75,14 @@
   }
 
   @include bkpt.medium {
-    &__title{
-        @include mxn.med-page-head;
-        padding: 1.5rem;
-        padding-top: 2rem;
+    &__title {
+      @include mxn.med-page-head;
+      padding: 1.5rem;
+      padding-top: 2rem;
     }
-    &__form{
-        padding: 1.5rem;
-        padding-top: 0;
+    &__form {
+      padding: 1.5rem;
+      padding-top: 0;
     }
     &__thumbnail {
       width: 50vw;
@@ -101,8 +101,43 @@
   }
 
   @include bkpt.large {
+    &__wrapper {
+      padding: 0 4.75rem;
+    }
+    &__title {
+      padding: 0;
+      padding-top: 2rem;
+      padding-bottom: 1.5rem;
+      border-bottom: 1px solid clr.$divider-outline;
+    }
+    &__thumbnail {
+      width: 33vw;
+    }
+    &__video {
+      border: none;
+      display: flex;
+      flex-direction: column;
+      margin-bottom: 4.5rem;
+      border-bottom: 1px solid clr.$divider-outline;
+    }
     &__form {
       flex-direction: row;
+      padding: 0;
+    }
+    &__form-contents {
+      padding-left: 1.5rem;
+    }
+    &__label {
+      padding-top: 1.5rem;
+    }
+    &__form-contents {
+      flex-grow: 2;
+    }
+    &__input--textarea {
+      height: 9.75rem;
+    }
+    &__buttons {
+      margin-top: 1.5rem;
     }
   }
 }
