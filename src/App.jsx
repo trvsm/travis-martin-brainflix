@@ -12,18 +12,12 @@ import MainSection from "./components/mainsection/MainSection";
 const brainflixKey = "?api_key=29ea6abf-4f80-41fe-996e-c95e8069ab12";
 const videoEndpoint = "https://project-2-api.herokuapp.com/videos";
 
-const videoData = [];
-let videoDetails = {};
-
-const nextVideoList = (videoId) => {
-  return videoData.filter((video) => video.id !== videoId);
-};
 
 function App() {
   const [defaultVideo, setDefaultVideo] = useState("");
   // can change all defaultVideo to video details, except initial video shows in side
-  const [videos, setVideos] = useState(videoData);
-  const [activeDetails, setActiveDetails] = useState(videoDetails);
+  const [videos, setVideos] = useState([]);
+  const [activeDetails, setActiveDetails] = useState({});
 
   const params = useParams();
 
