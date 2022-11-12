@@ -35,6 +35,9 @@ function App() {
           axios.get(`${videoEndpoint}${brainflixKey}`).then((response) => {
             setVideos(response.data.filter((video) => video.id !== active.id));
           });
+        })
+        .catch((error) => {
+          console.log(error);
         });
       //setVideos in separate call to get video list & filter
       // setVideos(active.filter((video) => video.id !== response.data.id));
@@ -53,6 +56,9 @@ function App() {
             .then((response) => {
               setActiveDetails(response.data);
             });
+        })
+        .catch((error) => {
+          console.log(error);
         });
     }
   }, [params]);
