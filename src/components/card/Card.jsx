@@ -1,4 +1,4 @@
-import "./card.scss";
+import "./Card.scss";
 import { Link} from "react-router-dom";
 
 const Card = ({ videos }) => {

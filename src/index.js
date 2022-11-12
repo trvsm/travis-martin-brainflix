@@ -2,7 +2,7 @@ import React from "react";
 import ReactDOM from "react-dom/client";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
-import App from "./App";
+import App from "../src/pages/home/App";
 import Header from "./components/header/Header";
 import Upload from "./pages/upload/Upload";
 

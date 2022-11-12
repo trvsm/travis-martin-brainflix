@@ -1,4 +1,4 @@
-import "./mainSection.scss";
+import "./MainSection.scss";
 
 let dateString;
 const formatCommentDate = (dateMS) => {

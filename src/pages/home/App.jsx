@@ -1,17 +1,16 @@
-import "./styles/main.scss";
+import "../../styles/main.scss";
 import axios from "axios";
 import { useState, useEffect } from "react";
-import { useParams} from "react-router-dom";
+import { useParams } from "react-router-dom";
 
-import Card from "./components/card/Card";
-import Form from "./components/form/Form";
-import Hero from "./components/hero/Hero";
-import MainSection from "./components/mainsection/MainSection";
+import Card from "../../components/card/Card";
+import Form from "../../components/form/Form";
+import Hero from "../../components/hero/Hero";
+import MainSection from "../../components/mainsection/MainSection";
 
 //info to make and store api requests
 const brainflixKey = "?api_key=29ea6abf-4f80-41fe-996e-c95e8069ab12";
 const videoEndpoint = "https://project-2-api.herokuapp.com/videos";
-
 
 function App() {
   const [defaultVideo, setDefaultVideo] = useState("");
@@ -20,7 +19,6 @@ function App() {
   const [activeDetails, setActiveDetails] = useState({});
 
   const params = useParams();
-
 
   useEffect(() => {
     // I see that params is empty object on logo click, how to set state to default

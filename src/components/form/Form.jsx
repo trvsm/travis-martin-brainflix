@@ -1,4 +1,4 @@
-import "./form.scss";
+import "./Form.scss";
 
 const Form = () => {
   return (

@@ -19,7 +19,7 @@ export default function Upload() {
   const submitHandler = (event) => {
     event.preventDefault();
 
-    setUploadMessage("Thanks for uploading, redirect in 5 seconds");
+    setUploadMessage("Thanks for uploading! Automatic redirect in 5 seconds");
     setTimeout(() => {
       navigate("/");
     }, 5000);
@@ -58,8 +58,13 @@ export default function Upload() {
           />
 
           <div className="upload__buttons">
-            <button onClick={()=>navigate('/')} className='upload__button upload__button--cancel'>CANCEL</button>
-            <button className='upload__button' >PUBLISH</button>
+            <button
+              onClick={() => navigate("/")}
+              className="upload__button upload__button--cancel"
+            >
+              CANCEL
+            </button>
+            <button className="upload__button">PUBLISH</button>
           </div>
         </section>
       </form>

@@ -1,4 +1,4 @@
-import "./hero.scss";
+import "./Hero.scss";
 let dateString;
 const formatCommentDate = (dateMS) => {
   //grabs current date as string
