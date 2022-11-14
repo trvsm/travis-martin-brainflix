@@ -9,6 +9,8 @@ export default function Upload() {
   const [uploadDescription, setUploadDescription] = useState("");
   const [uploadMessage, setUploadMessage] = useState("");
 
+
+// track & set form fields via state
   const handleChangeTitle = (event) => {
     setUploadTitle(event.target.value);
   };
@@ -16,6 +18,8 @@ export default function Upload() {
     setUploadDescription(event.target.value);
   };
 
+
+  // handle form submit & return user to homepage
   const submitHandler = (event) => {
     event.preventDefault();
 

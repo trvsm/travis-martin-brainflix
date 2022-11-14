@@ -13,25 +13,23 @@ const brainflixKey = "?api_key=29ea6abf-4f80-41fe-996e-c95e8069ab12";
 const videoEndpoint = "https://project-2-api.herokuapp.com/videos";
 
 function App() {
-  const [defaultVideo, setDefaultVideo] = useState("");
-  // can change all defaultVideo to video details, except initial video shows in side
   const [videos, setVideos] = useState([]);
   const [activeDetails, setActiveDetails] = useState({});
 
   const params = useParams();
 
   useEffect(() => {
-    // I see that params is empty object on logo click, how to set state to default
     if (params.videoId) {
+      // get video details via params ID, display as active with stats & comments
       axios
         .get(`${videoEndpoint}/${params.videoId}${brainflixKey}`)
         .then((response) => {
           let active = response.data;
-          setDefaultVideo(active.id);
           setActiveDetails(active);
           return active;
         })
         .then((active) => {
+          // filter video list to exclude active video
           axios.get(`${videoEndpoint}${brainflixKey}`).then((response) => {
             setVideos(response.data.filter((video) => video.id !== active.id));
           });
@@ -39,14 +37,12 @@ function App() {
         .catch((error) => {
           console.log(error);
         });
-      //setVideos in separate call to get video list & filter
-      // setVideos(active.filter((video) => video.id !== response.data.id));
     } else {
+      // set default video to first video on API, filter side videos
       axios
         .get(`${videoEndpoint}${brainflixKey}`)
         .then((response) => {
           const firstVid = response.data[0].id;
-          setDefaultVideo(firstVid);
           setVideos(response.data.filter((video) => video.id !== firstVid));
           return firstVid;
         })

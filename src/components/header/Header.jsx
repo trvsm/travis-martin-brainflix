@@ -5,7 +5,9 @@ const Header = () => {
   return (
     <>
       <header className="header">
-        <Link to='/'><div className="header__logo"></div></Link>
+        <Link to="/">
+          <div className="header__logo"></div>
+        </Link>
         <div className="header__right">
           <div className="header__search">
             <form className="header__form" action="/">
@@ -21,10 +23,9 @@ const Header = () => {
             <div className="header__profile-pic header__profile-pic--small"></div>
           </div>
           <div className="header__upload">
-<Link to="upload">
+            <Link to="upload">
               <button className="header__button">Upload</button>
-</Link>
-  
+            </Link>
 
             <div className="header__profile-pic header__profile-pic--med"></div>
           </div>

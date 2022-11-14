@@ -2,7 +2,7 @@ import "./Card.scss";
 import { Link} from "react-router-dom";
 
 const Card = ({ videos }) => {
-
+// generate side video cards
 
   return (
     <section className="gallery">
