@@ -3,10 +3,16 @@ import axios from "axios";
 import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 
+/* supports back end as a variable; 
+can easily use different back end for diff environments; dev, production, etc
+*/
+
 import Card from "../../components/card/Card";
 import Form from "../../components/form/Form";
 import Hero from "../../components/hero/Hero";
 import MainSection from "../../components/mainsection/MainSection";
+
+const BACK_END = process.env.REACT_APP_BACKEND_URL;
 
 //info to make and store api requests
 const brainflixKey = "?api_key=29ea6abf-4f80-41fe-996e-c95e8069ab12";

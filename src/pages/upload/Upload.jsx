@@ -1,6 +1,9 @@
 import "./upload.scss";
 import { useNavigate } from "react-router-dom";
 import { useState } from "react";
+import axios from "axios";
+
+const BACK_END = process.env.REACT_APP_BACKEND_URL;
 
 export default function Upload() {
   const navigate = useNavigate();
@@ -9,8 +12,7 @@ export default function Upload() {
   const [uploadDescription, setUploadDescription] = useState("");
   const [uploadMessage, setUploadMessage] = useState("");
 
-
-// track & set form fields via state
+  // track & set form fields via state
   const handleChangeTitle = (event) => {
     setUploadTitle(event.target.value);
   };
@@ -18,11 +20,17 @@ export default function Upload() {
     setUploadDescription(event.target.value);
   };
 
-
   // handle form submit & return user to homepage
   const submitHandler = (event) => {
     event.preventDefault();
-
+    const newVideo = {
+      title: uploadTitle,
+      description: uploadDescription,
+    };
+    axios.post(`${BACK_END}/videos`, newVideo)
+    .then((response) => {
+      console.log(response.data);
+    });
     setUploadMessage("Thanks for uploading! Automatic redirect in 5 seconds");
     setTimeout(() => {
       navigate("/");
