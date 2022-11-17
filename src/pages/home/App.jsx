@@ -14,10 +14,6 @@ import MainSection from "../../components/mainsection/MainSection";
 
 const BACK_END = process.env.REACT_APP_BACKEND_URL;
 
-//info to make and store api requests
-const brainflixKey = "?api_key=29ea6abf-4f80-41fe-996e-c95e8069ab12";
-const videoEndpoint = "https://project-2-api.herokuapp.com/videos";
-
 function App() {
   const [videos, setVideos] = useState([]);
   const [activeDetails, setActiveDetails] = useState({});
@@ -67,11 +63,11 @@ function App() {
     <>
       <div className="large-flex">
         <div className="left">
-          <Hero key={activeDetails.id} activeVideo={activeDetails} />
+          {Object.keys(activeDetails).length > 0? (<Hero key={activeDetails.id} activeVideo={activeDetails} />) : <p>loading</p>}
           <Form />
-          {Object.keys(activeDetails).length > 0 && (
+          {Object.keys(activeDetails).length > 0 ? (
             <MainSection comments={activeDetails.comments} />
-          )}
+          ): <p>loading</p>}
         </div>
         <div>
           <Card videos={videos} />
