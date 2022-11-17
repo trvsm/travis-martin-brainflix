@@ -63,11 +63,17 @@ function App() {
     <>
       <div className="large-flex">
         <div className="left">
-          {Object.keys(activeDetails).length > 0? (<Hero key={activeDetails.id} activeVideo={activeDetails} />) : <p>loading</p>}
+          {Object.keys(activeDetails).length > 0 ? (
+            <Hero key={activeDetails.id} activeVideo={activeDetails} />
+          ) : (
+            <p>loading...</p>
+          )}
           <Form />
           {Object.keys(activeDetails).length > 0 ? (
             <MainSection comments={activeDetails.comments} />
-          ): <p>loading</p>}
+          ) : (
+            <p>loading...</p>
+          )}
         </div>
         <div>
           <Card videos={videos} />

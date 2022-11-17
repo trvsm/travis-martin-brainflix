@@ -24,7 +24,7 @@ const Card = ({ videos }) => {
           </div>
         ))
       ) : (
-        <p>loading</p>
+        <p>loading...</p>
       )}
     </section>
   );
