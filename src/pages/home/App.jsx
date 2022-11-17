@@ -28,7 +28,7 @@ function App() {
     if (params.videoId) {
       // get video details via params ID, display as active with stats & comments
       axios
-        .get(`${videoEndpoint}/${params.videoId}${brainflixKey}`)
+        .get(`${BACK_END}/videos/${params.videoId}`)
         .then((response) => {
           let active = response.data;
           setActiveDetails(active);
@@ -36,7 +36,7 @@ function App() {
         })
         .then((active) => {
           // filter video list to exclude active video
-          axios.get(`${videoEndpoint}${brainflixKey}`).then((response) => {
+          axios.get(`${BACK_END}/videos`).then((response) => {
             setVideos(response.data.filter((video) => video.id !== active.id));
           });
         })
@@ -46,18 +46,16 @@ function App() {
     } else {
       // set default video to first video on API, filter side videos
       axios
-        .get(`${videoEndpoint}${brainflixKey}`)
+        .get(`${BACK_END}/videos`)
         .then((response) => {
           const firstVid = response.data[0].id;
           setVideos(response.data.filter((video) => video.id !== firstVid));
           return firstVid;
         })
         .then((firstVid) => {
-          axios
-            .get(`${videoEndpoint}/${firstVid}${brainflixKey}`)
-            .then((response) => {
-              setActiveDetails(response.data);
-            });
+          axios.get(`${BACK_END}/videos/${firstVid}`).then((response) => {
+            setActiveDetails(response.data);
+          });
         })
         .catch((error) => {
           console.log(error);
