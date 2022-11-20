@@ -9,6 +9,10 @@
     padding: 1rem;
     padding-top: 0.5rem;
     border-bottom: 1px solid clr.$divider-outline;
+
+      @include bkpt.large{
+   border-bottom: none; 
+  }
   }
 
   &__profile-pic {
@@ -88,4 +92,5 @@
       padding-left: 1rem;
     }
   }
+
 }

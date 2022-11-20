@@ -52,4 +52,8 @@
             @include mxn.med-subhead;
         }
     }
+    @include bkpt.large{
+        border-bottom: none;
+            border-top: 1px solid clr.$divider-outline;
+    }
 }
