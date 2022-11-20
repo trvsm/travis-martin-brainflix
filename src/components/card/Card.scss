@@ -9,6 +9,7 @@
   padding-bottom: 0;
   width: 100vw;
 
+
   &__title {
     text-transform: uppercase;
     @include mxn.small-subhead;
@@ -25,6 +26,7 @@
     width: 28vw;
     border-left: 1px solid clr.$divider-outline;
     z-index: 1;
+      height: 85vh;
   }
 }
 

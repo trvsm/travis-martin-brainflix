@@ -14,10 +14,6 @@ import MainSection from "../../components/mainsection/MainSection";
 
 const BACK_END = process.env.REACT_APP_BACKEND_URL;
 
-//info to make and store api requests
-const brainflixKey = "?api_key=29ea6abf-4f80-41fe-996e-c95e8069ab12";
-const videoEndpoint = "https://project-2-api.herokuapp.com/videos";
-
 function App() {
   const [videos, setVideos] = useState([]);
   const [activeDetails, setActiveDetails] = useState({});
@@ -28,7 +24,7 @@ function App() {
     if (params.videoId) {
       // get video details via params ID, display as active with stats & comments
       axios
-        .get(`${videoEndpoint}/${params.videoId}${brainflixKey}`)
+        .get(`${BACK_END}/videos/${params.videoId}`)
         .then((response) => {
           let active = response.data;
           setActiveDetails(active);
@@ -36,7 +32,7 @@ function App() {
         })
         .then((active) => {
           // filter video list to exclude active video
-          axios.get(`${videoEndpoint}${brainflixKey}`).then((response) => {
+          axios.get(`${BACK_END}/videos`).then((response) => {
             setVideos(response.data.filter((video) => video.id !== active.id));
           });
         })
@@ -46,18 +42,16 @@ function App() {
     } else {
       // set default video to first video on API, filter side videos
       axios
-        .get(`${videoEndpoint}${brainflixKey}`)
+        .get(`${BACK_END}/videos`)
         .then((response) => {
           const firstVid = response.data[0].id;
           setVideos(response.data.filter((video) => video.id !== firstVid));
           return firstVid;
         })
         .then((firstVid) => {
-          axios
-            .get(`${videoEndpoint}/${firstVid}${brainflixKey}`)
-            .then((response) => {
-              setActiveDetails(response.data);
-            });
+          axios.get(`${BACK_END}/videos/${firstVid}`).then((response) => {
+            setActiveDetails(response.data);
+          });
         })
         .catch((error) => {
           console.log(error);
@@ -69,10 +63,16 @@ function App() {
     <>
       <div className="large-flex">
         <div className="left">
-          <Hero key={activeDetails.id} activeVideo={activeDetails} />
+          {Object.keys(activeDetails).length > 0 ? (
+            <Hero key={activeDetails.id} activeVideo={activeDetails} />
+          ) : (
+            <p>loading...</p>
+          )}
           <Form />
-          {Object.keys(activeDetails).length > 0 && (
+          {Object.keys(activeDetails).length > 0 ? (
             <MainSection comments={activeDetails.comments} />
+          ) : (
+            <p>loading...</p>
           )}
         </div>
         <div>
