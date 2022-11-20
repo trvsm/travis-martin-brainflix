@@ -2,58 +2,60 @@
 @use "../../styles/partials/colors" as clr;
 @use "../../styles/partials/fonts" as fnt;
 @use "../../styles/partials/mixins" as mxn;
-.comment{
+.comment {
+  display: flex;
+  padding: 1rem 0;
+  margin: 0 1rem;
+  border-bottom: 1px solid clr.$divider-outline;
+
+  &__profile-pic {
+    margin: 0;
+    @include mxn.profile-pic;
+  }
+
+  &__right-section {
     display: flex;
-    padding: 1rem;
-    border-bottom: 1px solid clr.$divider-outline;
+    flex-direction: column;
+    padding-left: 1rem;
+  }
+  &__attribution {
+    display: flex;
+    justify-content: space-between;
+  }
+  &__name {
+    @include mxn.small-subhead;
+  }
+  &__timestamp {
+    @include mxn.small-copy;
+    color: clr.$text-label;
+  }
+  &__comment {
+    margin: 0;
+    padding-top: 1rem;
+    @include mxn.small-copy;
+  }
 
-    &__profile-pic{
-        margin: 0;
-       @include mxn.profile-pic;}
+  @include bkpt.medium {
+    padding: 1.5rem;
 
-    &__right-section{
-        display: flex;
-        flex-direction: column;
-        padding-left: 1rem;
-    }
-    &__attribution{
-        display: flex;
-        justify-content: space-between;
-    }
-    &__name{
-        @include mxn.small-subhead;
-    }
-    &__timestamp{
-        @include mxn.small-copy;
-        color: clr.$text-label;
-    }
-    &__comment{
-        margin: 0;
-        padding-top: 1rem;
-        @include mxn.small-copy;
+    &__profile-pic {
+      @include mxn.med-profile;
     }
 
-    @include bkpt.medium{
-        padding: 1.5rem;
-        
-        &__profile-pic{
-            @include mxn.med-profile;
-        }
-        
-        &__comment{
-            @include mxn.med-copy;
-            padding-top: .5rem;
-
-        }
-        &__timestamp{
-            @include mxn.med-copy;
-        }
-        &__name{
-            @include mxn.med-subhead;
-        }
+    &__comment {
+      @include mxn.med-copy;
+      padding-top: 0.5rem;
     }
-    @include bkpt.large{
-        border-bottom: none;
-            border-top: 1px solid clr.$divider-outline;
+    &__timestamp {
+      @include mxn.med-copy;
     }
+    &__name {
+      @include mxn.med-subhead;
+    }
+  }
+  @include bkpt.large {
+    border-bottom: none;
+    border-top: 1px solid clr.$divider-outline;
+    margin-right: 0;
+  }
 }

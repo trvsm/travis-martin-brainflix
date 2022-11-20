@@ -6,12 +6,14 @@
 .comments {
   &__form-flex {
     display: flex;
-    padding: 1rem;
+    padding-bottom: 1rem;
     padding-top: 0.5rem;
+    margin: 0 1rem;
     border-bottom: 1px solid clr.$divider-outline;
 
       @include bkpt.large{
    border-bottom: none; 
+  margin-right: 0;
   }
   }
 
